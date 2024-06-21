@@ -77,6 +77,11 @@ export const getFusion = async (sourceNode: CraftNode, targetNode: CraftNode): P
     return cn;
 };
 
+export const changeFavicon = (path: string) => {
+    const faviconElement = document.getElementById('favicon') as HTMLLinkElement;
+    faviconElement.href = path;
+  }
+
 export const playTrashSound = () => {
     trashSound?.play();
 }
