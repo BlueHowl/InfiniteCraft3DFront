@@ -1,6 +1,6 @@
 <script lang="ts">
     import Item from "./Item.svelte";
-    import { addDraggableNode, getDraggableNodeCoordinates, removeDraggableNode, setDraggableNodeInFusion, updateDraggableNodePosition } from "../stores/DraggableNodeStore";
+    import { addDraggableNode, removeDraggableNode, setDraggableNodeInFusion, updateDraggableNodePosition } from "../stores/DraggableNodeStore";
     import type { DraggableNode } from "../types/DraggableNode";
     import { onMount } from "svelte";
     import { checkIntersection, getFusion } from "../util/util";

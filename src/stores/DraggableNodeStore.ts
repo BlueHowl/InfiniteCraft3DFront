@@ -7,8 +7,6 @@ import { playTrashSound } from "../util/util";
 //Store de gestion d'état de la barre de chargement
 export const draggableNodeListStore = writable<DraggableNode[]>([]);
 
-let draggableNodeList: DraggableNode[] = [];
-
 let i = 0;
 
 //Ajout d'un CraftNode dans la liste
@@ -23,11 +21,6 @@ export const addDraggableNode = (cnode: CraftNode, coordinate: Coordinate): Drag
   });
 
   return node;
-}
-
-export const getDraggableNodeCoordinates = (id: number): Coordinate => {
-    const node = draggableNodeList.find((n) => n.id === id);
-    return node?.coordinate || { x: 0, y: 0 };
 }
 
 // Function to update a draggable node's position
@@ -62,7 +55,3 @@ export const removeAllDraggableNode = () => {
 
   playTrashSound();
 }
-
-draggableNodeListStore.subscribe((value) => {
-    draggableNodeList = value;
-});
