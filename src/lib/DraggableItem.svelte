@@ -4,7 +4,6 @@
     import type { DraggableNode } from "../types/DraggableNode";
     import { onMount } from "svelte";
     import { checkIntersection, getFusion } from "../util/util";
-    import { isInFusionStateStore, setInfusionState } from "../stores/isInFusionStore";
   
     export let node: DraggableNode;
 
@@ -55,7 +54,6 @@
     }
 
     const handleMerge = async (targetNode: DraggableNode, sourceNode: DraggableNode) => {
-      setInfusionState(true);
       setDraggableNodeInFusion(targetNode.id);
       setDraggableNodeInFusion(sourceNode.id);
 
@@ -71,10 +69,6 @@
             );
         }
       }
-
-      setInfusionState(false);
-      // targetNode.inFusion = false;
-      // sourceNode.inFusion = false;
     }
   
     const handleDragOver = (event: DragEvent) => {
@@ -89,7 +83,7 @@
   <div
     bind:this={element}
     class="draggable-holder"
-    draggable={!$isInFusionStateStore}
+    draggable={!node.inFusion}
     on:dragstart={handleDragStart}
     on:dragend={handleDragEnd}
     on:drop={handleDrop}
