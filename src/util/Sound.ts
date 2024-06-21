@@ -7,28 +7,22 @@ export class Sound {
   
     constructor(private soundUrl: string) {}
   
-    async load() {
-      if (!this.audioContext) {
-        // Create the AudioContext in response to a user gesture
-        document.addEventListener('pointerdown', async() => {
-          this.audioContext = new AudioContext();
-          this.gainNode = this.audioContext.createGain();
-  
-          const response = await fetch(this.soundUrl);
-          const arrayBuffer = await response.arrayBuffer();
-          const audioData = await this.audioContext.decodeAudioData(arrayBuffer);
-  
-          this.buffer = audioData;
-        });
-      }
-      // this.audioContext = new AudioContext();
-      // this.gainNode = this.audioContext.createGain();
-  
-      // const response = await fetch(this.soundUrl);
-      // const arrayBuffer = await response.arrayBuffer();
-      // const audioData = await this.audioContext.decodeAudioData(arrayBuffer);
-  
-      // this.buffer = audioData;
+    load() {
+      (async() =>{
+        if (!this.audioContext) {
+          // Create the AudioContext in response to a user gesture
+          document.addEventListener('pointerdown', async() => {
+            this.audioContext = new AudioContext();
+            this.gainNode = this.audioContext.createGain();
+    
+            const response = await fetch(this.soundUrl);
+            const arrayBuffer = await response.arrayBuffer();
+            const audioData = await this.audioContext.decodeAudioData(arrayBuffer);
+    
+            this.buffer = audioData;
+          });
+        }
+      });
     }
   
     play() {

@@ -3,12 +3,6 @@ import { v4 as uuidv4 } from "uuid";
 import type { CraftNode } from "../types/CraftNode";
 import { createLocalStorage, persist } from "@macfja/svelte-persistent-store";
 
-
-//     { id: uuidv4(), text: "💧 Water" },
-//     { id: uuidv4(), text: "🔥 Fire" },
-//     { id: uuidv4(), text: "🌍 Earth" },
-//     { id: uuidv4(), text: "🌬️ Air" }
-
 const baseElements = [
     { id: uuidv4(), text: "Water", emoji: "💧", tags: "Liquid, Flow, Life, Aqua, Drink, Drinkable, H2O, HUMID, WET, COLD", isNew: false, createdAt: 0 },
     { id: uuidv4(), text: "Fire", emoji: "🔥", tags: "Hot, Flame, Blaze, Inferno, Heat, Burn, Wildfire, Spark, Ember, Smoke, Combustion, Pyro", isNew: false, createdAt: 0 },
