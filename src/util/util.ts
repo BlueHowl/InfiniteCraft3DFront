@@ -60,13 +60,13 @@ export const getFusion = async (sourceNode: CraftNode, targetNode: CraftNode): P
 
         result = JSON.parse(await generateNewValue(input) || "{}");
 
-        cn = await checkCraftNode(result?.text.trim() || "");
+        cn = await checkCraftNode(result?.text?.trim() || "");
 
         if(cn) {
             //stocke la combinaison découverte dans la base de données dont la craftNode correspondante existe déjà
             await storeCombination(sourceNode.text.trim(), targetNode.text.trim(), cn); 
         } else {
-            cn = addCraftNode(result?.text.trim() || "", result?.emoji.trim() || "", result?.tags || "()");
+            cn = addCraftNode(result?.text?.trim() || "", result?.emoji?.trim() || "", result?.tags || "()");
     
             await storeCombination(sourceNode.text.trim(), targetNode.text.trim(), cn); //stocke la combinaison découverte dans la base de données
 

@@ -88,7 +88,7 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
  * Instance Axios Backend Combinaisons et Meshy (Génération de mesh)
  */
 export const backendInstance = axios.create({
-  baseURL: 'http://localhost:3000/api',//'http://localhost:8080/https://api.meshy.ai/v1',
+  baseURL: 'https://infinitecraft3dserver-production.up.railway.app/api',//'http://localhost:3000/api',
   headers: {
     'Content-Type': 'application/json'
     //'Authorization': 'Bearer msy_DIMG5PB47ejZ8NfvOlkTFtSq84lZTgqmGZlH'
