@@ -22,7 +22,7 @@ export class Sound {
             this.buffer = audioData;
           });
         }
-      });
+      })();
     }
   
     play() {

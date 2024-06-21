@@ -95,11 +95,13 @@ let popSound: Sound | null = null;
 let trashSound: Sound | null = null;
 let discoverSound: Sound | null = null;
 
-popSound = new Sound('pop.mp3');
-await popSound.load();
+(async () => {
+    popSound = new Sound('pop.mp3');
+    await popSound.load();
 
-trashSound = new Sound('trash.mp3');
-await trashSound.load();
+    trashSound = new Sound('trash.mp3');
+    await trashSound.load();
 
-discoverSound = new Sound('discover.mp3');
-await discoverSound.load();
+    discoverSound = new Sound('discover.mp3');
+    await discoverSound.load();
+})();
