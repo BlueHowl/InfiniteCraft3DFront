@@ -65,6 +65,8 @@ export const getFusion = async (sourceNode: CraftNode, targetNode: CraftNode): P
         if(cn) {
             //stocke la combinaison découverte dans la base de données dont la craftNode correspondante existe déjà
             await storeCombination(sourceNode.text.trim(), targetNode.text.trim(), cn); 
+
+            addDiscoveredCraftNode(cn);
         } else {
             cn = addCraftNode(result?.text?.trim() || "", result?.emoji?.trim() || "", result?.tags || "()");
     
